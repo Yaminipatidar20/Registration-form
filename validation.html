@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration</title>
+	<style>
+		.error{
+			color:red;
+		}
+	</style>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="mx-auto col-md-6">
+				<h1 align='center' class="mt-5 pt-5 mb-4">Register Here</h1>
+	<form action="" id="register">
+		<table align='center' cellspacing='0' cellpadding='0' border=''class="table">
+			<tr>
+				<th><label> First Name </label></th>
+				<td><input class="form-control" type="text" name="firstname"></td>
+			</tr>
+			<tr>
+				<th><label> Last Name </label></th>
+				<td><input class="form-control" type="text" name="lastname"></td>
+			</tr>
+			<tr>
+				<th><label> Select State </label></th>
+				<td><select class="form-control" name="state">
+						<option value=''>Select State</option>
+						<option>Madhya Pradsh</option>
+						<option>Rajsthan</option>
+						<option>Bihar</option>
+						<option>Uttar Pradesh</option>
+					</select></td>
+			</tr>
+			<tr>
+				<th><label> Contact no </label></th>
+				<td><input class="form-control" type="text" name="no"></td>
+			</tr>
+			<tr>
+				<th><label> Email-id </label></th>
+				<td><input class="form-control" type="text" name="email"></td>
+			</tr>
+			<tr>
+				<th><label> Password </label></th>
+				<td><input class="form-control" type="text" name="password"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input class="btn btn-primary" type="submit" value="submit" />
+					<input class="btn btn-info" type="reset" value="Reset" />
+				</td>
+			</tr>
+		</table>
+	</form>
+			</div>
+		</div>
+	</div>
+	<script src="jquery.js"></script>
+	<script src="validation.js"></script>
+  <script>
+   $(function(){
+	  $("#register").validate({
+	  
+			rules: {
+			   firstname: "required", 
+			   lastname: "required",
+			   state: "required",           
+			   gender: "required",
+			no:  {
+				   required: true,
+				   number: true,
+					 minlength:5,
+					 maxlength:10,
+			  },   
+			  email: {
+				required: true,
+				email: true
+			  },
+			  password: {
+				required: true,
+				minlength:5
+			  },
+			  agree: "required"
+		 },
+
+		   messages: {
+			   firstname: "Please Enter Your First Name", 
+			   lastname: "Please Enter Your Last Name",
+			   state: "Please Select State ",          
+			   gender: "Please select Gender",
+			no: {
+				required: "Please Enter Mobile Number",
+				Number: "Please Enter Only Number",
+				minlength: "Please Enter Minimum 5 Number",
+				maxlength: "Please Enter Max 10 Number"
+			},   
+			email:{
+				required: "Please Enter Your Email",
+				email: "Please Enter Valid Email id"
+			   },
+			password:{
+				required: "Please Enter Your Password",
+				minlength: "Your Password Must be 5 Characters long"
+			  } 
+			  }, 
+				  submitHandler:function(form) {
+				  form.submit();
+			   }
+			});
+		 });
+   </script>
+
